@@ -1,5 +1,6 @@
 import { Component, Prop } from '@stencil/core';
 import { format } from '../../utils/utils';
+import { Decorator } from '../../utils/utils';
 
 @Component({
   tag: 'my-component',
@@ -10,7 +11,7 @@ export class MyComponent {
   /**
    * The first name
    */
-  @Prop() first: string;
+  @Decorator() @Prop() first: string;
 
   /**
    * The middle name
@@ -22,7 +23,7 @@ export class MyComponent {
    */
   @Prop() last: string;
 
-  private getText(): string {
+  getText(): string {
     return format(this.first, this.middle, this.last);
   }
 
